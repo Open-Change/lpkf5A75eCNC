@@ -1,0 +1,167 @@
+{
+    "board_name": "FoXCNC",
+    "board_type": "5A-75E v6.0",
+    "clock_frequency": 40000000,
+    "connection": {
+        "connection_type": "etherbone",
+        "tx_delay": 0,
+        "ip_address": "192.168.1.50",
+        "mac_address": "0x10e2d5000000"
+    },
+    "watchdog": {
+        "functions": [
+            {
+                "function_type": "enable",
+                "pin": "j1:8"
+            },
+            {
+                "function_type": "heartbeat",
+                "pin": "user_led:1",
+                "invert_output": true,
+                "waveform": "heartbeat",
+                "speed": 0.857
+            }
+        ]
+    },
+    "modules": [
+        {
+            "module_type": "gpio",
+            "instances": [
+                {"direction": "out", "pin":"j1:2" , "name":"enable-motor-00", "safe_state":true},
+                {"direction": "out", "pin":"j1:6" , "name":"enable-motor-01", "safe_state":true},
+                {"direction": "out", "pin":"j1:9" , "name":"j01:10", "safe_state":false},
+                {"direction": "out", "pin":"j1:10", "name":"j01:11", "safe_state":false},
+                {"direction": "out", "pin":"j1:11", "name":"j01:12", "safe_state":false},
+                {"direction": "out", "pin":"j1:12", "name":"j01:13", "safe_state":false},
+                {"direction": "out", "pin":"j1:13", "name":"j01:14", "safe_state":false},
+                {"direction": "out", "pin":"j1:14", "name":"j01:15", "safe_state":false},
+                {"direction": "out",  "pin":"j2:2",  "name":"enable-motor-02", "safe_state":true},
+                {"direction": "out",  "pin":"j2:6",  "name":"enable-motor-03", "safe_state":true},
+                {"direction": "out",  "pin":"j3:2",  "name":"enable-motor-04", "safe_state":true},
+                {"direction": "out",  "pin":"j3:4",  "name":"j03:5", "safe_state":false},
+                {"direction": "out",  "pin":"j3:5",  "name":"j03:6", "safe_state":false},
+                {"direction": "out",  "pin":"j3:6",  "name":"j03:7", "safe_state":false},
+                {"direction": "out",  "pin":"j4:0",  "name":"j04:1", "safe_state":false},
+                {"direction": "out",  "pin":"j4:1",  "name":"j04:2", "safe_state":false},
+                {"direction": "out",  "pin":"j4:2",  "name":"j04:3", "safe_state":false},
+                {"direction": "out",  "pin":"j4:4",  "name":"j04:5", "safe_state":false},
+                {"direction": "out",  "pin":"j4:5",  "name":"j04:6", "safe_state":false},
+                {"direction": "out",  "pin":"j4:6",  "name":"j04:7", "safe_state":false},
+                {"direction": "out",  "pin":"j5:0",  "name":"j05:1", "safe_state":false},
+                {"direction": "out",  "pin":"j5:1",  "name":"j05:2", "safe_state":false},
+                {"direction": "out",  "pin":"j5:2",  "name":"j05:3", "safe_state":false},
+                {"direction": "out",  "pin":"j5:4",  "name":"j05:5", "safe_state":false},
+                {"direction": "out",  "pin":"j5:5",  "name":"j05:6", "safe_state":false},
+                {"direction": "out",  "pin":"j5:6",  "name":"j05:7", "safe_state":false},
+                {"direction": "out",  "pin":"j6:0",  "name":"j06:1", "safe_state":false},
+                {"direction": "out",  "pin":"j6:1",  "name":"j06:2", "safe_state":false},
+                {"direction": "out",  "pin":"j6:2",  "name":"j06:3", "safe_state":false},
+                {"direction": "out",  "pin":"j6:4",  "name":"j06:5", "safe_state":false},
+                {"direction": "out",  "pin":"j6:5",  "name":"j06:6", "safe_state":false},
+                {"direction": "out",  "pin":"j6:6",  "name":"j06:7", "safe_state":false},
+                {"direction": "out",  "pin":"j7:0",  "name":"j07:1", "safe_state":false},
+                {"direction": "out",  "pin":"j7:1",  "name":"j07:2", "safe_state":false},
+                {"direction": "out",  "pin":"j7:2",  "name":"j07:3", "safe_state":false},
+                {"direction": "out",  "pin":"j7:4",  "name":"j07:5", "safe_state":false},
+                {"direction": "out",  "pin":"j7:5",  "name":"j07:6", "safe_state":false},
+                {"direction": "out",  "pin":"j7:6",  "name":"j07:7", "safe_state":false},
+                {"direction": "out",  "pin":"j8:0",  "name":"j08:1", "safe_state":false},
+                {"direction": "out",  "pin":"j8:1",  "name":"j08:2", "safe_state":false},
+                {"direction": "out",  "pin":"j8:2",  "name":"j08:3", "safe_state":false},
+                {"direction": "out",  "pin":"j8:4",  "name":"j08:5", "safe_state":false},
+                {"direction": "out",  "pin":"j8:5",  "name":"j08:6", "safe_state":false},
+                {"direction": "out",  "pin":"j8:6",  "name":"j08:7", "safe_state":false},
+                {"direction": "in", "pin":"j9:0", "name":"j09:1"},
+                {"direction": "in", "pin":"j9:1", "name":"j09:2"},
+                {"direction": "in", "pin":"j9:2", "name":"j09:3"},
+                {"direction": "in", "pin":"j9:4", "name":"j09:5"},
+                {"direction": "in", "pin":"j9:5", "name":"j09:6"},
+                {"direction": "in", "pin":"j9:6", "name":"j09:7"},
+                {"direction": "in", "pin":"j10:0", "name":"j10:1"},
+                {"direction": "in", "pin":"j10:1", "name":"j10:2"},
+                {"direction": "in", "pin":"j10:2", "name":"j10:3"},
+                {"direction": "in", "pin":"j10:4", "name":"j10:5"},
+                {"direction": "in", "pin":"j10:5", "name":"j10:6"},
+                {"direction": "in", "pin":"j10:6", "name":"j10:7"},
+                {"direction": "in", "pin":"j11:0", "name":"j11:1"},
+                {"direction": "in", "pin":"j11:1", "name":"j11:2"},
+                {"direction": "in", "pin":"j11:2", "name":"j11:3"},
+                {"direction": "in", "pin":"j11:4", "name":"j11:5"},
+                {"direction": "in", "pin":"j11:5", "name":"j11:6"},
+                {"direction": "in", "pin":"j11:6", "name":"j11:7"},
+                {"direction": "in", "pin":"j12:0", "name":"j12:1"},
+                {"direction": "in", "pin":"j12:1", "name":"j12:2"},
+                {"direction": "in", "pin":"j12:2", "name":"j12:3"},
+                {"direction": "in", "pin":"j12:4", "name":"j12:5"},
+                {"direction": "in", "pin":"j12:5", "name":"j12:6"},
+                {"direction": "in", "pin":"j12:6", "name":"j12:7"},
+                {"direction": "in", "pin":"j13:0", "name":"j13:1"},
+                {"direction": "in", "pin":"j13:1", "name":"j13:2"},
+                {"direction": "in", "pin":"j13:2", "name":"j13:3"},
+                {"direction": "in", "pin":"j13:4", "name":"j13:5"},
+                {"direction": "in", "pin":"j13:5", "name":"j13:6"},
+                {"direction": "in", "pin":"j13:6", "name":"j13:7"}
+            ]
+        }, 
+        {
+            "module_type": "stepgen",
+            "instances": [
+                {
+					"name": "motor-00",
+                    "pins" : {
+						"stepgen_type": "step_dir",
+                        "step_pin": "j1:0",
+                        "dir_pin": "j1:1"
+                    },
+                    "soft_stop": true
+                },
+                {
+                    "name": "motor-01",
+					"pins" : {
+                        "stepgen_type": "step_dir",
+                        "step_pin": "j1:4",
+                        "dir_pin": "j1:5"
+                    },
+                    "soft_stop": true
+                },
+                {
+					"name": "motor-02",
+                    "pins" : {
+                        "stepgen_type": "step_dir",
+                        "step_pin": "j2:0",
+                        "dir_pin": "j2:1"
+                    },
+                    "soft_stop": true
+                },
+                {
+                    "name": "motor-03",
+                    "pins" : {
+                        "stepgen_type": "step_dir",
+                        "step_pin": "j2:4",
+                        "dir_pin": "j2:5"
+                    },
+                    "soft_stop": true
+                },
+                {
+                    "name": "motor-04",
+                    "pins" : {
+                        "stepgen_type": "step_dir",
+                        "step_pin": "j3:0",
+                        "dir_pin": "j3:1"
+                    },
+                    "soft_stop": true
+                }
+            ]
+        },
+		{
+			"module_type": "encoder",
+			"instances": [
+					{"pin_A":"j14:0", "pin_B":"j14:1", "name": "enc-motor-00"},
+					{"pin_A":"j14:2", "pin_B":"j14:4", "name": "enc-motor-01"},
+					{"pin_A":"j14:5", "pin_B":"j14:6", "name": "enc-motor-02"},
+					{"pin_A":"j16:0", "pin_B":"j16:1", "name": "enc-motor-03"},
+					{"pin_A":"j16:2", "pin_B":"j16:4", "name": "enc-motor-04"}
+			]
+		}
+    ]
+}

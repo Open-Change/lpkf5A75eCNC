@@ -1,0 +1,191 @@
+#*******************
+#  AXIS X JOINT 0
+#*******************
+########################################################################
+
+# - Setup of timings
+
+setp stepgen.0.position-scale [JOINT_0]SCALE
+setp stepgen.0.steplen 205000
+setp stepgen.0.stepspace 205000
+setp stepgen.0.dirhold 68000
+setp stepgen.0.dirsetup 130000
+setp stepgen.0.maxaccel [JOINT_0]STEPGEN_MAXACCEL
+
+
+# - Setup of timings
+setp FoXCNC.stepgen.motor-00.position-scale   		[JOINT_0]STEP_SCALE
+setp FoXCNC.stepgen.motor-00.steplen         	 	[JOINT_0]STEPLEN
+setp FoXCNC.stepgen.motor-00.stepspace	     	 	[JOINT_0]STEPSPACE
+setp FoXCNC.stepgen.motor-00.dir-hold-time   	 	[JOINT_0]DIRHOLD
+setp FoXCNC.stepgen.motor-00.dir-setup-time  	 	[JOINT_0]DIRSETUP
+setp FoXCNC.stepgen.motor-00.max-velocity    	 	[JOINT_0]MAX_VELOCITY
+setp FoXCNC.stepgen.motor-00.max-acceleration 		[JOINT_0]MAX_ACCELERATION
+setp FoXCNC.gpio.enable-motor-00.invert-output 		[JOINT_0]ENABLE-MOTOR_INVERT_OUTPUT
+
+		# setp FoXCNC.stepgen.motor-00.debug 1
+		# - Connect velocity command
+#net x-pos_cmd 		joint.0.motor-pos-cmd 	=> 	FoXCNC.stepgen.motor-00.position-cmd 			
+#net x-pos_fb 		joint.0.motor-pos-fb  	<= 	FoXCNC.stepgen.motor-00.position-prediction 		
+
+
+
+
+ 
+
+net xpos-cmd joint.0.motor-pos-cmd => stepgen.0.position-cmd => 	FoXCNC.stepgen.motor-00.position-cmd 	
+net xpos-fb stepgen.0.position-fb => joint.0.motor-pos-fb
+net xstep <= stepgen.0.step
+net xdir <= stepgen.0.dir
+net xenable joint.0.amp-enable-out => stepgen.0.enable	=> 	FoXCNC.stepgen.motor-00.enable
+net x-enable                                            =>  FoXCNC.gpio.enable-motor-00.out
+# - Make sure we are in position mode (velocity_mode = FALSE)
+setp FoXCNC.stepgen.motor-00.velocity-mode 0
+
+net home-x => joint.0.home-sw-in
+
+
+#*******************
+#  AXIS Y JOINT 1
+#*******************
+########################################################################
+
+setp stepgen.1.position-scale [JOINT_1]SCALE
+setp stepgen.1.steplen 205000
+setp stepgen.1.stepspace 205000
+setp stepgen.1.dirhold 68000
+setp stepgen.1.dirsetup 130000
+setp stepgen.1.maxaccel [JOINT_1]STEPGEN_MAXACCEL
+net ypos-cmd joint.1.motor-pos-cmd => stepgen.1.position-cmd
+net ypos-fb stepgen.1.position-fb => joint.1.motor-pos-fb
+net ystep <= stepgen.1.step
+net ydir <= stepgen.1.dir
+net yenable joint.1.amp-enable-out => stepgen.1.enable
+net home-y => joint.1.home-sw-in
+
+
+
+#*******************
+#  AXIS Z JOINT 2
+#*******************
+########################################################################
+
+
+setp stepgen.2.position-scale [JOINT_2]SCALE
+setp stepgen.2.steplen 205000
+setp stepgen.2.stepspace 205000
+setp stepgen.2.dirhold 68000
+setp stepgen.2.dirsetup 130000
+setp stepgen.2.maxaccel [JOINT_2]STEPGEN_MAXACCEL
+
+
+
+
+
+
+
+# - Setup of timings
+setp FoXCNC.stepgen.motor-02.position-scale   		[JOINT_2]STEP_SCALE
+setp FoXCNC.stepgen.motor-02.steplen         	 	[JOINT_2]STEPLEN
+setp FoXCNC.stepgen.motor-02.stepspace	     	 	[JOINT_2]STEPSPACE
+setp FoXCNC.stepgen.motor-02.dir-hold-time   	 	[JOINT_2]DIRHOLD
+setp FoXCNC.stepgen.motor-02.dir-setup-time  	 	[JOINT_2]DIRSETUP
+setp FoXCNC.stepgen.motor-02.max-velocity    	 	[JOINT_2]MAX_VELOCITY
+setp FoXCNC.stepgen.motor-02.max-acceleration 		[JOINT_2]MAX_ACCELERATION
+setp FoXCNC.gpio.enable-motor-02.invert-output 		[JOINT_2]ENABLE-MOTOR_INVERT_OUTPUT
+
+#net zpos-cmd joint.2.motor-pos-cmd => stepgen.2.position-cmd   => 	FoXCNC.stepgen.motor-02.position-cmd 
+#net zpos-fb stepgen.2.position-fb => joint.2.motor-pos-fb
+#net zstep <= stepgen.2.step
+#net zdir <= stepgen.2.dir
+#net zenable joint.2.amp-enable-out => stepgen.2.enable  => 	FoXCNC.stepgen.motor-02.enable
+#net x-enable                                            =>  FoXCNC.gpio.enable-motor-02.out
+## - Make sure we are in position mode (velocity_mode = FALSE)
+#setp FoXCNC.stepgen.motor-02.velocity-mode 0
+
+
+net home-z => joint.2.home-sw-in
+
+
+
+ 
+
+
+		# Çarpma bileşeni oluştur
+		#loadrt mult2 count=1
+		#addf mult2.0 servo-thread
+
+		# mult2 girişlerine sinyalleri bağla
+		#setp mult2.0.in1 1
+		#mult2.0.out
+
+
+		# step motoru, nasıl open loop olarak çalıştırılır? 
+		# step motor  open loop
+		# Как управлять шаговым двигателем в разомкнутом контуре?
+		 
+
+		# # Komut ve feedback
+		#net zpos-cmd        joint.2.motor-pos-cmd => myCNC.stepgen.motor-02.position-cmd  
+		#net z-pos_fb 		joint.2.motor-pos-fb  <= myCNC.stepgen.motor-02.position-?????
+		#myCNC.stepgen.motor-02.position-feedback
+		#myCNC.stepgen.motor-02.position-prediction
+
+		# Enable sinyali (sadece Litex-CNCye)
+		#net zenable joint.2.amp-enable-out => myCNC.stepgen.motor-02.enable
+		#net x-enable => myCNC.gpio.enable-motor-02.out
+
+		# Pozisyon modu
+		#setp myCNC.stepgen.motor-02.velocity-mode 0
+
+
+
+net zpos-cmd        joint.2.motor-pos-cmd => FoXCNC.stepgen.motor-02.position-cmd 
+net z-pos_fb 		joint.2.motor-pos-fb  <= FoXCNC.stepgen.motor-02.position-prediction
+net zenable 		joint.2.amp-enable-out => FoXCNC.stepgen.motor-02.enable
+
+# Pozisyon modu
+setp FoXCNC.stepgen.motor-02.velocity-mode 0
+ 
+# Step/dir sinyalleri (Litex-CNC hardware olarak halleder, HAL de bağlantı gerekmez!)
+setp FoXCNC.stepgen.motor-02.debug 0
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+#*******************
+#  AXIS A JOINT 3
+#*******************
+########################################################################
+
+setp stepgen.3.position-scale [JOINT_3]SCALE
+#setp stepgen.3.steplen   340000
+#setp stepgen.3.stepspace 340000
+#setp stepgen.3.dirhold   200000
+#setp stepgen.3.dirsetup  200000
+setp stepgen.3.maxaccel [JOINT_3]STEPGEN_MAXACCEL
+net apos-cmd joint.3.motor-pos-cmd => stepgen.3.position-cmd
+net apos-fb stepgen.3.position-fb => joint.3.motor-pos-fb
+net astep <= stepgen.3.step
+net adir <= stepgen.3.dir
+net aenable joint.3.amp-enable-out => stepgen.3.enable
+
+# =========== Motor home sinyali ============
+# UDP'den gelen Z sinyalini joint3 ün home switch girişine bağla
+#net ZPulseSinyal => joint.3.home-sw-in   # Joint3 home switch olarak kullan
+# baglantı yok olmadğından  home yok ,onun yerine NO home bakılacak
+

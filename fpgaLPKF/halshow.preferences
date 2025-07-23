@@ -1,0 +1,46 @@
+# Halshow settings
+# This file is generated automatically.
+wm geometry . 1035x941+235+92
+placeFrames 0.3
+set ::ratio 0.3
+set ::old_w_leftf 160
+set ::watchlist {
+    pin+FoXCNC.communications.read-errors
+    pin+FoXCNC.communications.total-read-errors
+    pin+FoXCNC.communications.total-write-errors
+    pin+FoXCNC.write.time
+    pin+FoXCNC.gpio.j08:1.out
+    param+FoXCNC.write.tmax
+    param+debounce.0.delay
+    pin+FoXCNC.gpio.j08:3.out
+    param+FoXCNC.watchdog.timeout-cycles
+    param+FoXCNC.watchdog.timeout-ns
+    pin+FoXCNC.stepgen.motor-00.enable
+    param+FoXCNC.stepgen.00.max-frequency
+    pin+FoXCNC.stepgen.motor-02.velocity-prediction
+    pin+FoXCNC.stepgen.motor-02.velocity-mode
+    pin+FoXCNC.stepgen.motor-02.position-cmd
+    pin+FoXCNC.stepgen.motor-02.counts
+    pin+FoXCNC.stepgen.motor-02.acceleration-cmd
+    pin+FoXCNC.stepgen.motor-02.position-feedback
+    pin+FoXCNC.stepgen.motor-02.position-prediction
+    pin+FoXCNC.stepgen.motor-02.velocity-cmd
+    pin+FoXCNC.stepgen.motor-02.velocity-feedback
+    pin+FoXCNC.stepgen.motor-02.debug
+    pin+FoXCNC.stepgen.motor-02.enable
+    param+FoXCNC.stepgen.motor-02.dir-hold-time
+    param+FoXCNC.stepgen.motor-02.dir-setup-time
+    param+FoXCNC.stepgen.motor-02.frequency
+    param+FoXCNC.stepgen.motor-02.max-acceleration
+    param+FoXCNC.stepgen.motor-02.max-velocity
+    param+FoXCNC.stepgen.motor-02.position-scale
+    param+FoXCNC.stepgen.motor-02.steplen
+    param+FoXCNC.stepgen.motor-02.stepspace
+}
+set ::workmode watchhal
+set ::watchInterval 100
+set ::col1_width 100
+set ::ffmts 
+set ::ifmts 
+set ::alwaysOnTop 0
+set ::autoSaveWatchlist 1
