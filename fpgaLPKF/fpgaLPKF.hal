@@ -11,14 +11,19 @@ loadrt stepgen step_type=0,0,0,0
 
 loadrt litexcnc connections="eth:192.168.1.50"
  
+# Add the functions to the thread
+addf FoXCNC.read servo-thread
+addf FoXCNC.write servo-thread
 
+ 
+ 
 
 addf stepgen.capture-position servo-thread
 addf motion-command-handler servo-thread
 addf motion-controller servo-thread
 addf stepgen.update-freq servo-thread
 
-addf FoXCNC.write servo-thread
+
 
 # SETUP WATCHDOG
 # ==============

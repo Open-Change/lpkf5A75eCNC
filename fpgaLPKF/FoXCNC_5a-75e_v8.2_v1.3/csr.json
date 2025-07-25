@@ -1,0 +1,343 @@
+{
+    "csr_bases": {
+        "MMIO_inst": 0,
+        "ctrl": 2048,
+        "ethphy": 4096,
+        "identifier_mem": 6144
+    },
+    "csr_registers": {
+        "MMIO_inst_magic": {
+            "addr": 0,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_version": {
+            "addr": 4,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_clock_frequency": {
+            "addr": 8,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_module_config": {
+            "addr": 12,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_name1": {
+            "addr": 16,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_name2": {
+            "addr": 20,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_name3": {
+            "addr": 24,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_name4": {
+            "addr": 28,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_watchdog_config_data": {
+            "addr": 32,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_module_0": {
+            "addr": 36,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_gpio_config_data": {
+            "addr": 40,
+            "size": 3,
+            "type": "ro"
+        },
+        "MMIO_inst_module_1": {
+            "addr": 52,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_config_data": {
+            "addr": 56,
+            "size": 2,
+            "type": "ro"
+        },
+        "MMIO_inst_module_2": {
+            "addr": 64,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_encoder_config_data": {
+            "addr": 68,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_reset": {
+            "addr": 72,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_0_stepdata": {
+            "addr": 76,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_1_stepdata": {
+            "addr": 80,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_2_stepdata": {
+            "addr": 84,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_3_stepdata": {
+            "addr": 88,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_4_stepdata": {
+            "addr": 92,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_watchdog_data": {
+            "addr": 96,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_gpio_out": {
+            "addr": 100,
+            "size": 2,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_apply_time": {
+            "addr": 108,
+            "size": 2,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_0_speed_target_index_enable": {
+            "addr": 116,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_0_max_acceleration": {
+            "addr": 120,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_1_speed_target_index_enable": {
+            "addr": 124,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_1_max_acceleration": {
+            "addr": 128,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_2_speed_target_index_enable": {
+            "addr": 132,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_2_max_acceleration": {
+            "addr": 136,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_3_speed_target_index_enable": {
+            "addr": 140,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_3_max_acceleration": {
+            "addr": 144,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_4_speed_target_index_enable": {
+            "addr": 148,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_stepgen_4_max_acceleration": {
+            "addr": 152,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_encoder_index_enable": {
+            "addr": 156,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_encoder_reset_index_pulse": {
+            "addr": 160,
+            "size": 1,
+            "type": "rw"
+        },
+        "MMIO_inst_watchdog_status": {
+            "addr": 164,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_wall_clock": {
+            "addr": 168,
+            "size": 2,
+            "type": "ro"
+        },
+        "MMIO_inst_gpio_in": {
+            "addr": 176,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_0_position": {
+            "addr": 180,
+            "size": 2,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_0_speed": {
+            "addr": 188,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_1_position": {
+            "addr": 192,
+            "size": 2,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_1_speed": {
+            "addr": 200,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_2_position": {
+            "addr": 204,
+            "size": 2,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_2_speed": {
+            "addr": 212,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_3_position": {
+            "addr": 216,
+            "size": 2,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_3_speed": {
+            "addr": 224,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_4_position": {
+            "addr": 228,
+            "size": 2,
+            "type": "ro"
+        },
+        "MMIO_inst_stepgen_4_speed": {
+            "addr": 236,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_encoder_index_pulse": {
+            "addr": 240,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_encoder_0_counter": {
+            "addr": 244,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_encoder_1_counter": {
+            "addr": 248,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_encoder_2_counter": {
+            "addr": 252,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_encoder_3_counter": {
+            "addr": 256,
+            "size": 1,
+            "type": "ro"
+        },
+        "MMIO_inst_encoder_4_counter": {
+            "addr": 260,
+            "size": 1,
+            "type": "ro"
+        },
+        "ctrl_reset": {
+            "addr": 2048,
+            "size": 1,
+            "type": "rw"
+        },
+        "ctrl_scratch": {
+            "addr": 2052,
+            "size": 1,
+            "type": "rw"
+        },
+        "ctrl_bus_errors": {
+            "addr": 2056,
+            "size": 1,
+            "type": "ro"
+        },
+        "ethphy_crg_reset": {
+            "addr": 4096,
+            "size": 1,
+            "type": "rw"
+        },
+        "ethphy_rx_inband_status": {
+            "addr": 4100,
+            "size": 1,
+            "type": "ro"
+        },
+        "ethphy_mdio_w": {
+            "addr": 4104,
+            "size": 1,
+            "type": "rw"
+        },
+        "ethphy_mdio_r": {
+            "addr": 4108,
+            "size": 1,
+            "type": "ro"
+        }
+    },
+    "constants": {
+        "config_platform_name": "colorlight_5a_75e",
+        "config_clock_frequency": 40000000,
+        "config_cpu_type_none": null,
+        "config_cpu_variant_standard": null,
+        "config_cpu_family": null,
+        "config_cpu_name": null,
+        "config_cpu_human_name": "unknown",
+        "config_identifier": "foxcnc 2025-07-25 13:29:25",
+        "config_csr_data_width": 32,
+        "config_csr_alignment": 32,
+        "config_bus_standard": "wishbone",
+        "config_bus_data_width": 32,
+        "config_bus_address_width": 32,
+        "config_bus_bursting": 0
+    },
+    "memories": {
+        "csr": {
+            "base": 0,
+            "size": 65536,
+            "type": "io"
+        }
+    }
+}

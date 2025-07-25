@@ -1,6 +1,6 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1035x941+235+92
+wm geometry . 1035x941+686+110
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
@@ -8,7 +8,6 @@ set ::watchlist {
     pin+FoXCNC.communications.read-errors
     pin+FoXCNC.communications.total-read-errors
     pin+FoXCNC.communications.total-write-errors
-    pin+FoXCNC.write.time
     pin+FoXCNC.gpio.j08:1.out
     param+FoXCNC.write.tmax
     param+debounce.0.delay
@@ -36,6 +35,9 @@ set ::watchlist {
     param+FoXCNC.stepgen.motor-02.position-scale
     param+FoXCNC.stepgen.motor-02.steplen
     param+FoXCNC.stepgen.motor-02.stepspace
+    pin+FoXCNC.read.time
+    pin+FoXCNC.write.time
+    pin+stepgen.2.counts
 }
 set ::workmode watchhal
 set ::watchInterval 100

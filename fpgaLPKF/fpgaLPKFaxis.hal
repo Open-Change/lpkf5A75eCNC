@@ -22,27 +22,19 @@ setp FoXCNC.stepgen.motor-00.dir-setup-time  	 	[JOINT_0]DIRSETUP
 setp FoXCNC.stepgen.motor-00.max-velocity    	 	[JOINT_0]MAX_VELOCITY
 setp FoXCNC.stepgen.motor-00.max-acceleration 		[JOINT_0]MAX_ACCELERATION
 setp FoXCNC.gpio.enable-motor-00.invert-output 		[JOINT_0]ENABLE-MOTOR_INVERT_OUTPUT
+net home-x => joint.0.home-sw-in
 
-		# setp FoXCNC.stepgen.motor-00.debug 1
-		# - Connect velocity command
-#net x-pos_cmd 		joint.0.motor-pos-cmd 	=> 	FoXCNC.stepgen.motor-00.position-cmd 			
-#net x-pos_fb 		joint.0.motor-pos-fb  	<= 	FoXCNC.stepgen.motor-00.position-prediction 		
-
-
+ 
 
 
  
 
-net xpos-cmd joint.0.motor-pos-cmd => stepgen.0.position-cmd => 	FoXCNC.stepgen.motor-00.position-cmd 	
+net xpos-cmd joint.0.motor-pos-cmd => stepgen.0.position-cmd   	
 net xpos-fb stepgen.0.position-fb => joint.0.motor-pos-fb
 net xstep <= stepgen.0.step
 net xdir <= stepgen.0.dir
-net xenable joint.0.amp-enable-out => stepgen.0.enable	=> 	FoXCNC.stepgen.motor-00.enable
-net x-enable                                            =>  FoXCNC.gpio.enable-motor-00.out
-# - Make sure we are in position mode (velocity_mode = FALSE)
-setp FoXCNC.stepgen.motor-00.velocity-mode 0
-
-net home-x => joint.0.home-sw-in
+net xenable joint.0.amp-enable-out => stepgen.0.enable	 
+ 
 
 
 #*******************
@@ -77,9 +69,15 @@ setp stepgen.2.stepspace 205000
 setp stepgen.2.dirhold 68000
 setp stepgen.2.dirsetup 130000
 setp stepgen.2.maxaccel [JOINT_2]STEPGEN_MAXACCEL
-
-
-
+#paralel port başla
+		# net zpos-cmd joint.2.motor-pos-cmd => stepgen.2.position-cmd
+		# net zpos-fb stepgen.2.position-fb => joint.2.motor-pos-fb
+		# net zstep <= stepgen.2.step
+		# net zdir <= stepgen.2.dir
+		# net zenable joint.2.amp-enable-out => stepgen.2.enable
+#paralel port bitti
+net home-z => joint.2.home-sw-in 
+ 
 
 
 
@@ -94,74 +92,23 @@ setp FoXCNC.stepgen.motor-02.max-velocity    	 	[JOINT_2]MAX_VELOCITY
 setp FoXCNC.stepgen.motor-02.max-acceleration 		[JOINT_2]MAX_ACCELERATION
 setp FoXCNC.gpio.enable-motor-02.invert-output 		[JOINT_2]ENABLE-MOTOR_INVERT_OUTPUT
 
-#net zpos-cmd joint.2.motor-pos-cmd => stepgen.2.position-cmd   => 	FoXCNC.stepgen.motor-02.position-cmd 
-#net zpos-fb stepgen.2.position-fb => joint.2.motor-pos-fb
-#net zstep <= stepgen.2.step
-#net zdir <= stepgen.2.dir
-#net zenable joint.2.amp-enable-out => stepgen.2.enable  => 	FoXCNC.stepgen.motor-02.enable
-#net x-enable                                            =>  FoXCNC.gpio.enable-motor-02.out
-## - Make sure we are in position mode (velocity_mode = FALSE)
-#setp FoXCNC.stepgen.motor-02.velocity-mode 0
-
-
-net home-z => joint.2.home-sw-in
-
-
-
- 
-
-
-		# Çarpma bileşeni oluştur
-		#loadrt mult2 count=1
-		#addf mult2.0 servo-thread
-
-		# mult2 girişlerine sinyalleri bağla
-		#setp mult2.0.in1 1
-		#mult2.0.out
-
-
-		# step motoru, nasıl open loop olarak çalıştırılır? 
-		# step motor  open loop
-		# Как управлять шаговым двигателем в разомкнутом контуре?
-		 
-
-		# # Komut ve feedback
-		#net zpos-cmd        joint.2.motor-pos-cmd => myCNC.stepgen.motor-02.position-cmd  
-		#net z-pos_fb 		joint.2.motor-pos-fb  <= myCNC.stepgen.motor-02.position-?????
-		#myCNC.stepgen.motor-02.position-feedback
-		#myCNC.stepgen.motor-02.position-prediction
-
-		# Enable sinyali (sadece Litex-CNCye)
-		#net zenable joint.2.amp-enable-out => myCNC.stepgen.motor-02.enable
-		#net x-enable => myCNC.gpio.enable-motor-02.out
+#fpga başla
+		net zpos-cmd       joint.2.motor-pos-cmd => FoXCNC.stepgen.motor-02.position-cmd 
+		net z-pos_fb 		joint.2.motor-pos-fb  <= FoXCNC.stepgen.motor-02.position-prediction
+		net zenable 		joint.2.amp-enable-out => FoXCNC.stepgen.motor-02.enable
 
 		# Pozisyon modu
-		#setp myCNC.stepgen.motor-02.velocity-mode 0
-
-
-
-net zpos-cmd        joint.2.motor-pos-cmd => FoXCNC.stepgen.motor-02.position-cmd 
-net z-pos_fb 		joint.2.motor-pos-fb  <= FoXCNC.stepgen.motor-02.position-prediction
-net zenable 		joint.2.amp-enable-out => FoXCNC.stepgen.motor-02.enable
-
-# Pozisyon modu
-setp FoXCNC.stepgen.motor-02.velocity-mode 0
- 
-# Step/dir sinyalleri (Litex-CNC hardware olarak halleder, HAL de bağlantı gerekmez!)
-setp FoXCNC.stepgen.motor-02.debug 0
- 
+		setp FoXCNC.stepgen.motor-02.velocity-mode 0
+		 
+		# Step/dir sinyalleri (Litex-CNC hardware olarak halleder, HAL de bağlantı gerekmez!)
+		setp FoXCNC.stepgen.motor-02.debug 0
+		 
+#fpga bitti
 
 
 
 
-
-
-
-
-
- 
-
-
+#https://www.youtube.com/shorts/20G5AF_K53k
 
 
 

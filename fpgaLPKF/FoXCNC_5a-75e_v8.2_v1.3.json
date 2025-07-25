@@ -128,8 +128,8 @@
 					"name": "motor-02",
                     "pins" : {
                         "stepgen_type": "step_dir",
-                        "step_pin": "j2:0",
-                        "dir_pin": "j2:1"
+                        "step_pin": "j3:0",
+                        "dir_pin": "j3:1"
                     },
                     "soft_stop": true
                 },
@@ -146,8 +146,8 @@
                     "name": "motor-04",
                     "pins" : {
                         "stepgen_type": "step_dir",
-                        "step_pin": "j3:0",
-                        "dir_pin": "j3:1"
+                        "step_pin": "j2:0",
+                        "dir_pin": "j2:1"
                     },
                     "soft_stop": true
                 }
